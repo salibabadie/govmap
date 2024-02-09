@@ -18,10 +18,10 @@
                 });
         });
         function showExample(){
-          var params = {  
-                    type:govmap.locateType.lotParcelToAddress,  
-                    address: 'עין גדי 32, אילת'  
-                    }
+                 var params = {  
+                       type:govmap.locateType.lotParcelToAddress,  
+                       address: 'עין גדי 32, אילת'  
+                       }
                 govmap.searchAndLocate().then(function(response){  
                       console.log(response)
                     });    
