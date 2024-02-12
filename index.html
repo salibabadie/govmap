@@ -22,9 +22,10 @@
                        type:govmap.locateType.lotParcelToAddress,  
                        address: 'עין גדי 32, אילת'  
                        }
-                govmap.searchAndLocate(params).then(function(response){  
-                      console.log(response)
-                    });    
+                       govmap.geocode({keyword: 'הרוקמים', type: govmap.geocodeType.AccuracyOnly}  
+                ).then(function(response){
+                console.log(response)
+            });   
         }
  </script>
  </head>
