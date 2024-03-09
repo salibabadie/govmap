@@ -1,14 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
+
+<head>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
     <script src="https://www.govmap.gov.il/govmap/api/govmap.api.js"></script>
     <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            govmap.createMap('map', 
+        $(document).ready(function () {
+            govmap.createMap('map',
                 {
                     token: 'f1a97b57-e494-48ac-8970-ab15b5a22c00',
-                    layers: ["GASSTATIONS","PARCEL_HOKS", "KSHTANN_ASSETS", "bus_stops", "PARCEL_ALL"],
+                    layers: ["GASSTATIONS", "PARCEL_HOKS", "KSHTANN_ASSETS", "bus_stops", "PARCEL_ALL"],
                     showXY: true,
                     identifyOnClick: true,
                     isEmbeddedToggle: false,
@@ -17,21 +17,33 @@
                     zoomButtons: false
                 });
         });
-        function showExample(){
-                 var params = {  
-                       type:govmap.locateType.lotParcelToAddress,  
-                       address: 'עין גדי 32, אילת'  
-                       }
-                       govmap.geocode({keyword: 'שונמית 20,חיפה', type: govmap.geocodeType.AccuracyOnly}  
-                ).then(function(response){
+        function showExample() {
+            const inputValue = document.getElementById('input').value;
+
+            var params = {
+                type: govmap.locateType.lotParcelToAddress,
+                address: 'עין גדי 32, אילת'
+            }
+            govmap.geocode({ keyword: inputValue, type: govmap.geocodeType.AccuracyOnly }
+            ).then(function (response) {
                 console.log(response)
-            });   
+            });
         }
- </script>
- </head>
- <body>
+    </script>
+</head>
+
+<body>
     <div id="map" style="width:600px;height:600px"></div>
-    <button onClick="showExample()">Show Example</button>
- </body>
+    <div class="flex">
+        <input type="text" id="input" />
+        <button onClick="showExample()">Show Example</button>
+    </div>
+</body>
+
+<style>
+    .flex {
+        display: flex;
+    }
+</style>
 
 </html>
