@@ -18,11 +18,13 @@
                 });
         });
         function showExample() {
+            const inputValue = document.getElementById('input').value;
+
             var params = {
                 type: govmap.locateType.lotParcelToAddress,
                 address: 'עין גדי 32, אילת'
             }
-            govmap.geocode({ keyword: 'שונמית 20,חיפה', type: govmap.geocodeType.AccuracyOnly }
+            govmap.geocode({ keyword: inputValue, type: govmap.geocodeType.AccuracyOnly }
             ).then(function (response) {
                 console.log(response)
             });
@@ -32,7 +34,16 @@
 
 <body>
     <div id="map" style="width:600px;height:600px"></div>
-    <button onClick="showExample()">Show Example</button>
+    <div class="flex">
+        <input type="text" id="input" />
+        <button onClick="showExample()">Show Example</button>
+    </div>
 </body>
+
+<style>
+    .flex {
+        display: flex;
+    }
+</style>
 
 </html>
