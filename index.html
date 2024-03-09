@@ -22,10 +22,9 @@
 
             var params = {
                 type: govmap.locateType.lotParcelToAddress,
-                address: 'עין גדי 32, אילת'
+                address: inputValue
             }
-            govmap.geocode({ keyword: inputValue, type: govmap.geocodeType.AccuracyOnly }
-            ).then(function (response) {
+            govmap.searchAndLocate(params).then(function (response) {
                 console.log(response)
             });
         }
@@ -36,7 +35,7 @@
     <div id="map" style="width:600px;height:600px"></div>
     <div class="flex">
         <input type="text" id="input" />
-        <button onClick="showExample()">Show Example</button>
+        <button onClick="showExample()">getgushandparcel</button>
     </div>
 </body>
 
