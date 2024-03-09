@@ -20,9 +20,9 @@
         function showExample(){
                  var params = {  
                        type:govmap.locateType.lotParcelToAddress,  
-                       address: 'עין גדי 32, אילת'  
+                       address: 'שונמית 20 ,חיפה'  
                        }
-                       govmap.geocode({keyword: 'שונמית 20,חיפה', type: govmap.geocodeType.AccuracyOnly}  
+                       govmap.searchAndLocate().then(function(response){   
                 ).then(function(response){
                 console.log(response)
             });   
